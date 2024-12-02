@@ -44,7 +44,7 @@ export function Controller() {
 
   function executeAddBookRoute() {
     addBookView.renderView();
-    addBookView.bindAddBookButtonClick(function () {
+    addBookView.bindAddBookButtonClick(function (event) {
       try {
         const input = addBookView.getFormInputs();
 
