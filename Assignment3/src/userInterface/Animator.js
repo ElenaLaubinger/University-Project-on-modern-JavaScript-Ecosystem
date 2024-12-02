@@ -1,5 +1,3 @@
-import anime from "animejs";
-
 export function Animator() {
   function moveToRight(element, callback) {
     anime({
