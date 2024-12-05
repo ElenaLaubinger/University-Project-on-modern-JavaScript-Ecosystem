@@ -31,39 +31,86 @@ export function Controller() {
     bookDetailView.renderView(book);
   }
 
+  function handleSearch() {
+    document
+      .getElementById("searchSortButton")
+      .addEventListener("click", function () {
+        let searchText = document.forms[0].inputSearchText.value;
+        let sanitizedInput = booksListView.sanitizeInput(searchText);
+        let searchOption = booksListView.getDropdown("searchOption");
+        let sortOption = booksListView.getDropdown("sortOption");
+        const filteredBooks = filterBooks(sanitizedInput, searchOption);
+        const sortedBooks = sortBooks(filteredBooks, sortOption);
+        // Remove Table
+        booksListView.removeTable();
+        // Pass filtered and sorted books to the view
+        booksListView.addBooksToTable(sortedBooks);
+        handleDetails();
+        handleDelete();
+        handleReset();
+      });
+  }
+  function handleDetails() {
+    console.log("clicked");
+    const $detailButtons = document.querySelectorAll(".detail-button");
+
+    for (const element of $detailButtons) {
+      const $detailButton = element;
+      $detailButton.addEventListener("click", function () {
+        const isbn = $detailButton.dataset.isbn;
+        location.hash = "#/details/" + isbn;
+      });
+    }
+  }
+
+  function handleDelete() {
+    const $deleteButtons = document.querySelectorAll(".remove-button");
+    console.log("clicked Delete");
+    for (const element of $deleteButtons) {
+      const $deleteButton = element;
+      $deleteButton.addEventListener("click", function () {
+        const isbn = $deleteButton.dataset.isbn;
+        booksListView.removeBook(isbn);
+        removeBook(isbn);
+      });
+    }
+  }
+  function handleReset() {
+    document
+      .getElementById("resetButton")
+      .addEventListener("click", function () {
+        const books = bookManager.getBooks();
+        booksListView.renderView(books);
+        handleSearch();
+        handleDetails();
+        handleDelete();
+      });
+  }
+
   function executeBookListRoute() {
     const books = bookManager.getBooks();
     booksListView.renderView(books);
-
-    // Search and Sort functionality management
-    booksListView.bindSearchButtonClick(function (textInput, searchOption, sortOption) {
-      const filteredBooks = filterBooks(textInput, searchOption);
-      const sortedBooks = sortBooks(filteredBooks, sortOption);
-      // Remove Table
-      booksListView.removeTable();
-      // Pass filtered and sorted books to the view
-      booksListView.addBooksToTable(sortedBooks);
-    });
-    booksListView.bindResetButtonClick(books);
-
-    // Table button management
-    booksListView.bindDetailButtonClick(function (event) {
-      location.hash = "#/details/" + event.target.dataset.isbn;
-    });
-    booksListView.bindRemoveButtonClick(function (event) {
-      removeBook(event.target.dataset.isbn);
-    });
+    handleSearch();
+    handleDetails();
+    handleDelete();
+    handleReset();
   }
 
   function filterBooks(textInput, searchOption) {
     let books = bookManager.getBooks();
 
-    if (searchOption === 'title') {
-      books = books.filter(book => book.title.toLowerCase().includes(textInput.toLowerCase()));
-    } else if (searchOption === 'author') {
-      books = books.filter(book => book.author.toLowerCase().includes(textInput.toLowerCase()));
-    } else if (searchOption === 'isbn') {
-      books = books.filter(book => book.isbn.toLowerCase().includes(textInput.toLowerCase()));
+    if (searchOption === "title") {
+      books = books.filter((book) =>
+        book.title.toLowerCase().includes(textInput.toLowerCase())
+      );
+    } else if (searchOption === "author") {
+      books = books.filter((book) =>
+        book.author.toLowerCase().includes(textInput.toLowerCase())
+      );
+    } else if (searchOption === "isbn") {
+      books = books.filter((book) =>
+        book.isbn.toLowerCase().includes(textInput.toLowerCase())
+      );
     }
 
     return books;
@@ -72,15 +119,15 @@ export function Controller() {
   function sortBooks(books, sortOption) {
     let sortedBooks;
 
-    if (sortOption === 'titleAsc') {
+    if (sortOption === "titleAsc") {
       sortedBooks = books.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (sortOption === 'titleDesc') {
+    } else if (sortOption === "titleDesc") {
       sortedBooks = books.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sortOption === 'authorAsc') {
+    } else if (sortOption === "authorAsc") {
       sortedBooks = books.sort((a, b) => b.author.localeCompare(a.author));
-    } else if (sortOption === 'authorDesc') {
+    } else if (sortOption === "authorDesc") {
       sortedBooks = books.sort((a, b) => a.author.localeCompare(b.author));
-    } else if (sortOption === 'noSort') {
+    } else if (sortOption === "noSort") {
       sortedBooks = books;
     }
 
@@ -123,7 +170,6 @@ export function Controller() {
   function removeBook(isbn) {
     // Remove Book from store
     bookManager.removeBook(isbn);
-
     booksListView.removeBook(isbn);
   }
 }

@@ -64,8 +64,8 @@ export function BooksList() {
       // Get form's values
       let searchText = document.forms[0].inputSearchText.value;
       let sanitizedInput = sanitizeInput(searchText);
-      let searchOption = getDropdown('searchOption');
-      let sortOption = getDropdown('sortOption');
+      let searchOption = getDropdown("searchOption");
+      let sortOption = getDropdown("sortOption");
 
       callback(sanitizedInput, searchOption, sortOption);
     });
@@ -174,7 +174,7 @@ export function BooksList() {
 
   function removeTable() {
     const $tableToRemove = document.querySelector("#book-list");
-    $tableToRemove.innerHTML = ``
+    $tableToRemove.innerHTML = ``;
   }
 
   return {
@@ -186,5 +186,7 @@ export function BooksList() {
     bindRemoveButtonClick: bindRemoveButtonClick,
     bindDetailButtonClick: bindDetailButtonClick,
     renderView: renderView,
+    sanitizeInput: sanitizeInput,
+    getDropdown: getDropdown,
   };
 }
