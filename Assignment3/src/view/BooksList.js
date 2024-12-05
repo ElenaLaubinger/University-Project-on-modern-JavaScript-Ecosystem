@@ -57,19 +57,6 @@ export function BooksList() {
     addBooksToTable(books);
   }
 
-  function bindSearchButtonClick(callback) {
-    const $searchButton = document.querySelector("#searchSortButton");
-
-    $searchButton.addEventListener("click", () => {
-      // Get form's values
-      let searchText = document.forms[0].inputSearchText.value;
-      let sanitizedInput = sanitizeInput(searchText);
-      let searchOption = getDropdown("searchOption");
-      let sortOption = getDropdown("sortOption");
-
-      callback(sanitizedInput, searchOption, sortOption);
-    });
-  }
 
   function getDropdown(dropdownName) {
     // Get dropdown values of form
@@ -83,14 +70,6 @@ export function BooksList() {
     return input.replace(/[/\\#,+()$~%.^'"*<>{}]/g, "");
   }
 
-  function bindResetButtonClick(books) {
-    const $resetButton = document.querySelector("#resetButton");
-
-    $resetButton.addEventListener("click", () => {
-      // Reset of tableview
-      renderView(books);
-    });
-  }
 
   function addBooksToTable(books) {
     books.forEach(function (book) {
@@ -140,28 +119,6 @@ export function BooksList() {
     return $deleteCell;
   }
 
-  function bindDetailButtonClick(callback) {
-    const $detailButtons = document.querySelectorAll(".detail-button");
-
-    for (const element of $detailButtons) {
-      const $detailButton = element;
-      $detailButton.addEventListener("click", function (event) {
-        callback(event);
-      });
-    }
-  }
-
-  function bindRemoveButtonClick(callback) {
-    const $removeButtons = document.querySelectorAll(".remove-button");
-
-    for (const element of $removeButtons) {
-      const $removeButton = element;
-      $removeButton.addEventListener("click", function (event) {
-        callback(event);
-      });
-    }
-  }
-
   function removeBook(isbn) {
     const $bookToRemove = document.querySelector(`[data-isbn="${isbn}"]`);
 
@@ -178,13 +135,9 @@ export function BooksList() {
   }
 
   return {
-    bindSearchButtonClick: bindSearchButtonClick,
-    bindResetButtonClick: bindResetButtonClick,
     removeBook: removeBook,
     removeTable: removeTable,
     addBooksToTable: addBooksToTable,
-    bindRemoveButtonClick: bindRemoveButtonClick,
-    bindDetailButtonClick: bindDetailButtonClick,
     renderView: renderView,
     sanitizeInput: sanitizeInput,
     getDropdown: getDropdown,

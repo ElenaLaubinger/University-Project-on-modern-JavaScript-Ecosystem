@@ -51,9 +51,7 @@ export function Controller() {
       });
   }
   function handleDetails() {
-    console.log("clicked");
     const $detailButtons = document.querySelectorAll(".detail-button");
-
     for (const element of $detailButtons) {
       const $detailButton = element;
       $detailButton.addEventListener("click", function () {
@@ -65,7 +63,6 @@ export function Controller() {
 
   function handleDelete() {
     const $deleteButtons = document.querySelectorAll(".remove-button");
-    console.log("clicked Delete");
     for (const element of $deleteButtons) {
       const $deleteButton = element;
       $deleteButton.addEventListener("click", function () {
