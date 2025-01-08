@@ -1,4 +1,4 @@
-import Animator from "../userInterface/Animator";
+/* import Animator from "../userInterface/Animator"; */
 import { SORT_OPTIONS } from "../utils/sortBooksBySortOption";
 
 class BooksList {
