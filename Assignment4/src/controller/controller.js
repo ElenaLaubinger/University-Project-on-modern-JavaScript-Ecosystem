@@ -31,6 +31,7 @@ class Controller {
     );
   }
 
+  // Comment for testing purposes
   static executeBookListRoute() {
     const books = BookManager.getBooks();
 
