@@ -37,6 +37,13 @@ const testData = [
     description:
       "Second Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
   },
+  {
+    author: "Tree",
+    title: "Big Tree",
+    isbn: "123-4567-87-9",
+    description:
+      "Second Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+  },
 ];
 localStorage.setItem("books", JSON.stringify(testData));
 
