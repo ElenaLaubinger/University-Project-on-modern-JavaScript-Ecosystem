@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Database from "../../firebase_local/Database";
+import PropTypes from 'prop-types';
 
 const SearchAndSort = ({
   books, // Liste der Bücher
   onFilteredBooksChange, // Callback, um die gefilterten Bücher zurückzugeben
 }) => {
-  
+
   const [searchText, setSearchText] = useState("");
   const [searchOption, setSearchOption] = useState("title");
   const [sortOption, setSortOption] = useState("NO_SORTING");
@@ -14,13 +14,12 @@ const SearchAndSort = ({
   useEffect(() => {
     // Diese Funktion wird ausgeführt, wenn triggerSubmit geändert wird
     if (triggerSubmit) {
-     // console.log("triggerSubmit" + aktbooks);
       // Filter- und Sortierlogik
       const filteredBooks = books.filter((book) => {
         if (!searchText) return books; // Keine Suche, alle Bücher anzeigen
         return book[searchOption]?.toString().toLowerCase().includes(searchText.toLowerCase());
       });
-     
+
       const sortedBooks = filteredBooks.sort((a, b) => {
         if (sortOption === "NO_SORTING") return 0;
 
@@ -105,6 +104,11 @@ const SearchAndSort = ({
       </div>
     </div>
   );
+};
+
+SearchAndSort.propTypes = {
+  books: PropTypes.array.isRequired,
+  onFilteredBooksChange: PropTypes.func.isRequired,
 };
 
 export default SearchAndSort;
