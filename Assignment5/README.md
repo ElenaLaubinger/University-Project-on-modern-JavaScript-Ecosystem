@@ -2,6 +2,7 @@
 
 
 ## How to initialize Firebase Hosting
+
 1. Open a console of your choice in the project's source folder
 
 2. Install Firebase tools:
@@ -29,12 +30,11 @@
             ```bash 
             Y
         - Follow the steps guiding through GitHub-Authentication process   
-        - Set up the workflow to run a build script before every deploy?   
+        - Set up the workflow to run a build script before every deploy?  
+            Note: We tested this setting with `Y` & `npm ci && npm run build`.
+            Since they were not executed, we removed them.  
             ```bash 
-            Y
-        - What script?   
-            ```bash 
-            npm ci && npm run build
+            N
         - Choose either first or second auto-generated firebase-hosting-workflow   
     5. Revoke Authorization for the Firebase CLI through given link   
 
@@ -46,3 +46,5 @@
 
 
 ## Public App URL
+
+https://ibooks-bcb55.web.app
