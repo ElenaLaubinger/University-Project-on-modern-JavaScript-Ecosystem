@@ -30,7 +30,6 @@ const BooksList = () => {
 
     const loadBooks = () => {
       if (filteredBooks.length === 0) {
-        console.log("BooksList: Lade Bücher...");
         setFilteredBooks(books);
         // Ladezeit simulieren
       }
