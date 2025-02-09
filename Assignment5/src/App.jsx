@@ -6,7 +6,6 @@ import BookList from './Modules/BookList/BookList'
 import AddBook from './Modules/AddBook/AddBook'
 import BookDetail from './Modules/BookDetail'
 import NotFound from './Modules/NotFound';
-import Database from './firebase_local/Database'; // Hook importieren
 
 /**
  * App component that sets up the routing and renders the main sections of the app.

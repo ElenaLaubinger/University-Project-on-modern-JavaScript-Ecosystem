@@ -23,7 +23,7 @@ const firebaseConfig = {
  * Initializes and exports the Firebase application instance.
  * @type {FirebaseApp}
  */
-// Initialize Firebase
+
 const firebaseApp = initializeApp(firebaseConfig);
 
 export default firebaseApp;

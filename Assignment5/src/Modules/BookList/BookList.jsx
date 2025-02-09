@@ -33,7 +33,6 @@ const BooksList = () => {
 
   
 useEffect(() => {
-  // Setze den Ladevorgang, wenn filteredBooks leer ist
   
  if(update){
    updateData();
@@ -42,20 +41,18 @@ useEffect(() => {
 
   const loadBooks = () => {
     if (filteredBooks.length === 0 ) {
-      console.log("BooksList: Lade Bücher...");
       setFilteredBooks(books);
-     // Ladezeit simulieren
     }
   };
   loadBooks();
-}, [ books]);
+}, [books]); 
 
 
   return (
     <div className="container mt-4">
     <SearchAndSort
       books={books}
-      onFilteredBooksChange={setFilteredBooks} // Gefilterte Bücher updaten
+      onFilteredBooksChange={setFilteredBooks} 
     />
 
 {isLoading ? (

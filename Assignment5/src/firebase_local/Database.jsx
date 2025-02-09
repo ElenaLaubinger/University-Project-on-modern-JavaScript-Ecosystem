@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs, addDoc, deleteDoc, doc, getFirestore, onSnapshot, updateDoc } from "firebase/firestore";
+import { collection, addDoc, deleteDoc, doc, getFirestore, onSnapshot, updateDoc } from "firebase/firestore";
 import firebaseApp from "./FB_App";
 
 /**
@@ -31,16 +31,21 @@ function Database() {
    */
   const updateData = async () => {
     setisLoading(true);
-   //setTimeout(() => { //testen der Ladezeit
+   //setTimeout(() => { //test loading spinner
     try{ 
      onSnapshot(collectionRef, (querySnapshot) => {
       const displayItem = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      setData(displayItem);    
+      setData(displayItem); 
+      if (displayItem.length == 0) {
+        console.warn("No books found in the database!");
+      }   
   });
-}catch (error) {  }
+}catch (error) {
+  console.error("Error getting books:", error);
+  }
 finally { 
   setisLoading(false);
   };
@@ -51,22 +56,21 @@ finally {
    * @param {Object} newBook The new book object to add.
    * @returns {Object} Object indicating success or failure of the Add operation.
    */
-  // Funktion zum Hinzufügen eines Buches
+  
   const addBook = async (newBook) => {
     try {
-      // Überprüfen, ob die ISBN bereits existiert
+
       const existingBook = data.find(book => book.isbn === newBook.isbn);
       if (existingBook) {
         throw new Error("There already exists a book with this ISBN!");
       }
   
       await addDoc(collectionRef, newBook);
-      console.log("Book added successfully!");
-      updateData(); // Nach dem Hinzufügen direkt aktualisieren
-      return { success: true, message: "Book added successfully!" }; // Erfolg zurückgeben
+      updateData(); 
+      return { success: true, message: "Book added successfully!" }; 
     } catch (error) {
       console.error("Error adding book:", error.message);
-      return { success: false, message: error.message }; // Fehler zurückgeben
+      return { success: false, message: error.message }; 
     }
   };
   
@@ -74,14 +78,13 @@ finally {
    * Function to delete a book from Firestore collection.
    * @param {string} bookId The ID of the book to delete.
    */
-  // Funktion zum Löschen eines Buches
+ 
   const deleteBook = async (bookId) => {
     const bookRef = doc(database, `${collectionName}/${bookId}`);
 
     try {
       await deleteDoc(bookRef);
-      console.log("Book deleted successfully!");
-      updateData(); // Nach dem Löschen direkt aktualisieren
+      updateData(); 
     } catch (error) {
       console.error("Error deleting book:", error);
     }
@@ -98,7 +101,6 @@ finally {
   
     try {
       await updateDoc(bookRef, { rating });
-      console.log(`Buch mit ID ${bookId} wurde erfolgreich bewertet!`);
     } catch (error) {
       console.error("Fehler beim Aktualisieren der Bewertung:", error);
     }

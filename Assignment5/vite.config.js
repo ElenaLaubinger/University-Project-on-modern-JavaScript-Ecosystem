@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   // Set up environment variables with prefixes, so that vite can process them properly
+  //wird das noch gebraucht?
   const envWithProcessPrefix = Object.keys(env).reduce((prev, next) => {
     prev[`process.env.${next}`] = JSON.stringify(env[next]);
     return prev;

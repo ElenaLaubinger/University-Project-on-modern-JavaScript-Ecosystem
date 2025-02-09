@@ -43,15 +43,12 @@ const BookTable = ({ books,  onDelete, onUpdate, onRatingChange }) => {
    * @param {string} bookId - ID of the book to be deleted
    */
   const onRemoveClick = (bookId) => {
-    // Zeile nach rechts verschieben (Animation)
     setDeletedBooks((prev) => [...prev, bookId]);
-   console.log("Book in Databank!" + books);
     setTimeout(async() => {
       try {
       await deleteBook(bookId); onUpdate(true);} catch (error) {
+        console.error("Error deleting book", error);
       };
-     
-      console.log("Book deleted!" + books);
       onDelete((prevBooks) => prevBooks.filter((book) => book.id !== bookId));
     }, 500); 
    
