@@ -12,11 +12,11 @@ export default [
       ecmaVersion: 2020,
       globals: {
         ...globals.browser,
-        expect: 'readonly',  // Fügt 'expect' als globale Variable hinzu
+        expect: 'readonly', 
         vi: 'readonly',  
         test: 'readonly',
         describe: 'readonly', 
-        process: 'readonly',      // Fügt 'vi' als globale Variable hinzu
+        process: 'readonly',      
       },
       parserOptions: {
         ecmaVersion: 'latest',
@@ -36,6 +36,7 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
