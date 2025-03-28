@@ -1,9 +1,11 @@
-# MI-Proj-B/M: Group T4 
+# University Project on modern JavaScsript Ecosystem 
 
 **Description:**  
-This repository contains the submissions of our university project on the topic of "Modern Web Development with JavaScript." The goal of the project is to learn and practically apply modern web technologies. We use various technologies from the JavaScript ecosystem, including Webpack, Babel, React, ESLint, Firebase, and more.
+This repository contains the final submission of our university project on the topic of "Modern Web Development with JavaScript." The goal of the project was to learn and practically apply modern web technologies. We used various technologies from the JavaScript Ecosystem, including Webpack, Babel, React, ESLint, Firebase, and more.
 
-The project consists of several parts, each focusing on specific concepts and tools. In the final part, the previously learned technologies are combined to develop a comprehensive web application.
+📌 **Note:**
+The project consisted of several parts, each focusing on specific concepts and tools. While this README contains information about all used Technologies & Tools, 
+the Code of part 1 to 4 was deleted due to given code from the lecturer.
 
 ## 🚀 Assignments with Features
 
@@ -27,7 +29,8 @@ The project consists of several parts, each focusing on specific concepts and to
 
 ### 📌 Assignment 5: Final Project with React  
 - Implementation of a complete web application with **React**  
-- Use of **Firebase - Cloud Firestore Database** and **Firebase - Hosting**
+- Use of **Firebase - Cloud Firestore Database**
+- Deploy through **Firebase - Hosting**
 
 ---
 
@@ -43,15 +46,11 @@ The project consists of several parts, each focusing on specific concepts and to
 ---
 
 ## 📂 Folder Structure
-📌 **Note:** Each Assignment is located in its own folder within the repository. 🚀  
+📌 **Note:** Each Assignment was located in its own folder within the repository. The structure wasn't changed after deleting the folders for Assignment 1-4 🚀  
 
 ```
 📦 MI-Proj-24-35-T4
  ┣ 📂 .github/workflows
- ┣ 📂 Assignment1
- ┣ 📂 Assignment2
- ┣ 📂 Assignment3
- ┣ 📂 Assignment4
  ┣ 📂 Assignment5
  ┗ 📜 .gitignore
 ```
@@ -69,7 +68,7 @@ To install and run the project locally, you will need the following software:
 ### Installation Steps  
 1. Clone the repository and open the project folder:
    ```bash
-   git clone https://github.com/ElenaLaubinger/MI-Proj-24-25-T4.git
+   git clone https://github.com/ElenaLaubinger/University-Project-on-modern-javascript-ecosystem.git
    
 2. Navigate to the respective assignment folder:
    ```bash
@@ -82,97 +81,10 @@ To install and run the project locally, you will need the following software:
 ---
 
 ## Usage
- 
-### Assignment 1
-<details> 
- <summary> Show more </summary>
- 
-1. If you use Visual Studio Code, you can install the Live Server VS Code Extension.
-2. Open the project and right-click on the **index.html** file and select **"Open with Live Server"**.
-3. Your browser should automatically open and show the application.
-
-
-</details>
-
-### Assignment 2 
-<details> 
- <summary> Show more </summary>
-
-1. Build the application:
-   ```bash
-   npm run build
-
-2. Choose with the arrow-keys if you just want to **validate the JS dependencies** or also want to **minify the JS Code**.
-   
-     ![image](https://github.com/user-attachments/assets/6b5ede25-2ce2-4e0b-8028-ac16667fc78f)
-   
-3. Confirm with **ENTER**
-
- 
-
-</details>
-
-### Assignment 3
-
-<details> 
- <summary> Show more </summary>
-
-#### Build
-
-- Build the application in Developer Mode
-  - Creates a dist-folder with bundled JS-Code
-   ```bash
-   npm run build:dev
- 
-- Build the application in Production Mode
-  - Creates a dist-folder with minified JS-Code
-   ```bash 
-    npm run build:prod
-   
-#### Start the application
-
-1. Start the application:
-   ```bash
-   npm run start
-2. Open the Browser at http://localhost:3000/
-</details>
-
-### Assignment 4
-<details> 
- <summary> Show more </summary>
- 
-📌 **Note:** The application runs scripts in a CI-Pipeline, if you create a Pull-Request to the main-Branch of this repository.
- 
-#### How to run the scripts manually
- - Check the Test-Coverage
-    ```bash
-    npm run coverage
-  
- - Run tests on code
-    ```bash 
-    npm run test
-    
- - Run the linting
-    ```bash 
-    npm run lint
-    
- - Build
-   - Development-Mode
-     ```bash 
-     npm run dev
-   - Production-Mode
-     ```bash 
-     npm run build
-
-</details>
 
 ### Assignment 5 
 <details> 
  <summary> Show more </summary>
-
-#### Public App
-
-You can access the published App with the following Link: https://ibooks-bcb55.web.app
 
 #### Get the developer documentation
 
