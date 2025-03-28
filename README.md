@@ -3,7 +3,7 @@
 **Description:**  
 This repository contains the final submission of our university project on the topic of "Modern Web Development with JavaScript." The goal of the project was to learn and practically apply modern web technologies. We used various technologies from the JavaScript Ecosystem, including Webpack, Babel, React, ESLint, Firebase, and more.
 
-📌 **Note:**
+📌 **Note:**  
 The project consisted of several parts, each focusing on specific concepts and tools. While this README contains information about all used Technologies & Tools, 
 the code of parts 1 to 4 was deleted due to given code from the lecturer.
 
@@ -40,8 +40,8 @@ the code of parts 1 to 4 was deleted due to given code from the lecturer.
 ✅ **Node.js & npm**  
 ✅ **Babel & Webpack**  
 ✅ **ESLint**  
-✅ **Vitest**
-✅ **Vite**
+✅ **Vitest**  
+✅ **Vite**  
 ✅ **Firebase**  
 ✅ **GitHub Actions**  
 
