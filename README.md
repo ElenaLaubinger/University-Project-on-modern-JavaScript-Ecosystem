@@ -5,7 +5,7 @@ This repository contains the final submission of our university project on the t
 
 📌 **Note:**
 The project consisted of several parts, each focusing on specific concepts and tools. While this README contains information about all used Technologies & Tools, 
-the Code of part 1 to 4 was deleted due to given code from the lecturer.
+the code of parts 1 to 4 was deleted due to given code from the lecturer.
 
 ## 🚀 Assignments with Features
 
@@ -40,6 +40,8 @@ the Code of part 1 to 4 was deleted due to given code from the lecturer.
 ✅ **Node.js & npm**  
 ✅ **Babel & Webpack**  
 ✅ **ESLint**  
+✅ **Vitest**
+✅ **Vite**
 ✅ **Firebase**  
 ✅ **GitHub Actions**  
 
@@ -49,7 +51,7 @@ the Code of part 1 to 4 was deleted due to given code from the lecturer.
 📌 **Note:** Each Assignment was located in its own folder within the repository. The structure wasn't changed after deleting the folders for Assignment 1-4 🚀  
 
 ```
-📦 MI-Proj-24-35-T4
+📦 University-Project-on-modern-JavaScript-Ecosystem
  ┣ 📂 .github/workflows
  ┣ 📂 Assignment5
  ┗ 📜 .gitignore
