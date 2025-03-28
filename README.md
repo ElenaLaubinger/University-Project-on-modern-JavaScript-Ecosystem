@@ -68,7 +68,7 @@ To install and run the project locally, you will need the following software:
 ### Installation Steps  
 1. Clone the repository and open the project folder:
    ```bash
-   git clone https://github.com/ElenaLaubinger/University-Project-on-modern-javascript-ecosystem.git
+   git clone https://github.com/ElenaLaubinger/University-Project-on-modern-JavaScript-Ecosystem.git
    
 2. Navigate to the respective assignment folder:
    ```bash
