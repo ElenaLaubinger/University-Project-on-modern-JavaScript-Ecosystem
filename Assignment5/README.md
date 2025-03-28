@@ -64,8 +64,3 @@
 </details>
 
 8. Done!
-
-
-## Public App URL
-
-https://ibooks-bcb55.web.app
